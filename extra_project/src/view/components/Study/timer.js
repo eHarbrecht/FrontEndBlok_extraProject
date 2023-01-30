@@ -45,16 +45,67 @@ export class Timer extends LitElement {
 
     render() {
         return html`
-        <label>${this.time}</label>
-        <button @click=${() => this.timer(this.time)}>Start</button>
-        <button @click=${this.addSec}>+60</button>
-        <button @click=${this.removeSec}>-60</button>
+        <div class="grid">
+            <div class="wrapper">
+                <div class="overlay">
+                    <label>${this.time}</label><br>
+                    <div class="btns">
+                        <button @click=${() => this.timer(this.time)} class="start">Start</button><br>
+                        <button @click=${this.addSec}>+60</button>
+                        <button @click=${this.removeSec}>-60</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         `
     }
 
     static get styles() {
         return css`
-      
+        .grid {
+            display: grid;
+            width: calc(100vw - 100px);
+        }
+
+        .wrapper {
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            padding: 50px;
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+        
+        .overlay {
+            margin-top: 100px;
+        }
+
+        label {
+            font-size: 70px;
+        }
+
+        .btns {
+            margin-top: 25px;
+        }
+
+        button {
+            width: 140px;
+            height: 25px;
+            margin-top: 5px;
+            background-color: #FFFFFF;
+            color: #014421;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #014421;
+            color: #FFFFFF;
+        }
+
+        .start {
+            width: 280px;
+        }
         `
     }
 }
